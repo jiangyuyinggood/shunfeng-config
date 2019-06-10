@@ -1,0 +1,23 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1.com:8082/eureka,http://eureka2.com:8083/eureka,http://eureka3.com:8084/eureka
+  instance:
+    instance-id: consumer-8081
+    prefer-ip-address: true
+#hystrix:
+#  metrics:
+#    enabled: true
+feign:
+  hystrix:
+    enabled: true
+spring:
+  profiles: dev
+  application:
+    name: consumer-git-config-8088
+server:
+  port: 8088
+---
+spring:
+     profiles:
+       active: dev

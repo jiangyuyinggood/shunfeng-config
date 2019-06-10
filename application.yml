@@ -1,7 +1,27 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka1.com:8082/eureka,http://eureka2.com:8083/eureka,http://eureka3.com:8084/eureka
-  instance:
-    instance-id: user-management-8080
-    prefer-ip-address: true
+server:
+  port: 8087
+spring:
+  profiles: test
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiangyuyinggood/shunfeng-config.git
+  application:
+    name: config-8087-8087
+---
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8087
+spring:
+  profiles: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiangyuyinggood/shunfeng-config.git
+  application:
+    name: config-8087
